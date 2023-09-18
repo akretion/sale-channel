@@ -16,3 +16,10 @@ class SaleChannel(models.Model):
 
         action["domain"] = [("index_id", "in", indexes)]
         return action
+
+    def synchronize_channel_index_action(self):
+        self._synchronize_channel_index()
+        return self.open_se_binding()
+
+    def _synchronize_channel_index(self):
+        pass

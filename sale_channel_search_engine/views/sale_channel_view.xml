@@ -22,4 +22,11 @@
             </group>
         </field>
     </record>
+    <record id="action_synchronize_channel_index" model="ir.actions.server">
+        <field name="name">Synchronize</field>
+        <field name="model_id" ref="sale_channel.model_sale_channel" />
+        <field name="binding_model_id" ref="sale_channel.model_sale_channel" />
+        <field name="state">code</field>
+        <field name="code">action = record.synchronize_channel_index_action()</field>
+    </record>
 </odoo>
