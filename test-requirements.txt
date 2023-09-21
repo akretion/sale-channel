@@ -1,1 +1,4 @@
 odoo-test-helper >= 1.1.0
+
+# TODO REMOVE
+odoo-addon-connector-search-engine @ git+https://github.com/OCA/search-engine@refs/pull/157/head#subdirectory=setup/connector_search_engine
