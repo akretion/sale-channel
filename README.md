@@ -21,10 +21,12 @@ Available addons
 ----------------
 addon | version | maintainers | summary
 --- | --- | --- | ---
-[queue_job_chunk](queue_job_chunk/) | 16.0.0.0.0 |  | Job Queue Chunk
+[queue_job_chunk](queue_job_chunk/) | 16.0.0.1.0 |  | Job Queue Chunk
 [sale_channel](sale_channel/) | 16.0.0.0.0 |  | Adds the notion of sale channels
 [sale_channel_partner](sale_channel_partner/) | 16.0.0.0.0 |  | Bind sale channels to contacts
 [sale_channel_white_label](sale_channel_white_label/) | 16.0.0.0.0 |  | Base for white label management
+[sale_import_base](sale_import_base/) | 16.0.0.0.0 |  | Base for importing Sale Orders through a JSON file format
+[sale_import_rest](sale_import_rest/) | 16.0.0.0.0 |  | REST API for importig Sale Orders
 
 
 Unported addons
@@ -37,9 +39,7 @@ addon | version | maintainers | summary
 [sale_channel_hook_sale_state](sale_channel_hook_sale_state/) | 14.0.1.0.0 (unported) |  | Adds a hook for when a sale order emits an invoice
 [sale_channel_hook_stock_variation](sale_channel_hook_stock_variation/) | 14.0.1.0.0 (unported) |  | On stock variation, trigger notification to external webservice
 [sale_channel_product](sale_channel_product/) | 14.0.1.0.0 (unported) |  | Link Product with sale channel
-[sale_import_base](sale_import_base/) | 14.0.1.1.0 (unported) |  | Base for importing Sale Orders through a JSON file format
 [sale_import_delivery_carrier](sale_import_delivery_carrier/) | 14.0.1.0.0 (unported) |  | Adds delivery carrier functionality to Sale Imports
-[sale_import_rest](sale_import_rest/) | 14.0.1.0.1 (unported) |  | REST API for importig Sale Orders
 
 [//]: # (end addons)
 
