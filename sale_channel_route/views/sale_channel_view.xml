@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_channel_view_form" model="ir.ui.view">
+        <field name="name">sale.channel.form.view</field>
+        <field name="model">sale.channel</field>
+        <field name="inherit_id" ref="sale_channel.sale_channel_view_form" />
+        <field name="arch" type="xml">
+            <group name="general_info" position="inside">
+                <field name="route_id" groups="stock.group_adv_location" />
+            </group>
+        </field>
+    </record>
+</odoo>
