@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="sale_channel_import_file_form" model="ir.ui.view">
+        <field name="model">sale.channel.import.file</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="sale_channel_id" />
+                    <field name="import_file_format" required="1" />
+                    <field name="file_content" required="1" />
+                    <field
+                        name="delay"
+                        groups="sale_import_base.group_sale_import_payload"
+                    />
+                </group>
+                <footer>
+                    <button
+                        name="run"
+                        string="Import"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_channel_import_file" model="ir.actions.act_window">
+        <field name="name">Import Sale Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.channel.import.file</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
