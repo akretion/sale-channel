@@ -15,14 +15,17 @@ class ProductCategory(models.Model):
         store=True,
         compute="_compute_channel_ids",
         readonly=False,
-        recursive=True,
     )
 
-    @api.depends("parent_id.channel_ids")
+    @api.depends("channel_ids", "parent_id")
     def _compute_channel_ids(self):
         for record in self:
-            if record.parent_id:
-                record.channel_ids = record.parent_id.channel_ids
-                if not isinstance(record.id, models.NewId):
-                    # skip onchange
-                    record._on_sale_channel_modified()
+            if not record.parent_id:
+                record._propagate_channel_ids()
+
+    def _propagate_channel_ids(self):
+        for record in self:
+            children = record.child_id
+            if children:
+                children.write({"channel_ids": record.channel_ids})
+                children._propagate_channel_ids()
