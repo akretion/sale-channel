@@ -16,7 +16,7 @@ class StockPicking(models.Model):
                 lambda picking: (
                     not (
                         picking.picking_type_id.code == "outgoing"
-                        and picking.move_ids.mapped(
+                        and picking.move_lines.mapped(
                             "sale_line_id.order_id.sale_channel_id"
                         ).filtered(lambda x: x.custom_notifications)
                     )
@@ -40,7 +40,7 @@ class StockPicking(models.Model):
             if (
                 record.state == "assigned" and old_state not in ["assigned", "done"]
             ) or (record.state == "done" and old_state != "done"):
-                sale_channel = record.move_ids.mapped(
+                sale_channel = record.move_lines.mapped(
                     "sale_line_id.order_id.sale_channel_id"
                 ).filtered(lambda channel: channel.custom_notifications)
 
