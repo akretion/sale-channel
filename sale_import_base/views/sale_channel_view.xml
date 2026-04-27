@@ -9,6 +9,10 @@
                 <group>
                     <group name="sale_import_base" string="Sale Import Parameters">
                         <field name="internal_naming_method" />
+                        <field
+                            name="sale_sequence_id"
+                            attrs="{'invisible': [('internal_naming_method', '!=', 'name')]}"
+                        />
                         <field name="pricelist_id" />
                         <field name="crm_team_id" />
                         <field name="allow_match_on_email" />

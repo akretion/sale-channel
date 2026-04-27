@@ -86,6 +86,8 @@ class SaleChannelImporter(models.TransientModel):
             )
         if channel.internal_naming_method == "client_order_ref":
             so_vals["name"] = data["name"]
+        elif channel.internal_naming_method == "name" and channel.sale_sequence_id:
+            so_vals["name"] = channel.sale_sequence_id.next_by_id()
         if data.get("date_order"):
             so_vals["date_order"] = data["date_order"]
         return so_vals

@@ -34,3 +34,8 @@ class SaleChannel(models.Model):
         help="Sale Orders can use either Odoo native sequenced numbering, "
         "or the external identifier",
     )
+    sale_sequence_id = fields.Many2one(
+        "ir.sequence",
+        help="If empty, Odoo will name the imported sale order with the default "
+        "sequence, else it will use this one.",
+    )
