@@ -57,3 +57,4 @@ class SaleOrder(BaseModel, metaclass=ExtendableModelMeta):
     pricelist_id: int | None = None
     date_order: date | None = None
     salesperson: str | None = None
+    commitment_date: date |None = None
