@@ -88,6 +88,16 @@ class SaleChannelImporter(models.TransientModel):
             so_vals["name"] = data["name"]
         if data.get("date_order"):
             so_vals["date_order"] = data["date_order"]
+        if data.get("salesperson"):
+            salesperson = self.env["res.users"].search(
+                [
+                    "|",
+                    ("login", "=", data["salesperson"]),
+                    ("email", "=", data["date_order"]),
+                ]
+            )
+            if len(salesperson) == 1:
+                so_vals["user_id"] = salesperson.id
         return so_vals
 
     def _process_partner(self, customer_data):

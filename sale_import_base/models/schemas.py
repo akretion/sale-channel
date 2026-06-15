@@ -56,3 +56,4 @@ class SaleOrder(BaseModel, metaclass=ExtendableModelMeta):
     payment: Payment | None = None
     pricelist_id: int | None = None
     date_order: date | None = None
+    salesperson: str | None = None
