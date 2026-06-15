@@ -71,7 +71,9 @@ class SaleChannelImporter(models.TransientModel):
             "partner_shipping_id": address_shipping.id,
             "client_order_ref": data["name"],
             "sale_channel_id": channel.id,
-            "pricelist_id": data.get("pricelist_id") or channel.pricelist_id.id,
+            "pricelist_id": data.get("pricelist_id")
+            or partner.property_product_pricelist.id
+            or channel.pricelist_id.id,
             "team_id": channel.crm_team_id.id,
         }
 
