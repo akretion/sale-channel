@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="sale_channel_view_form" model="ir.ui.view">
+        <field name="model">sale.channel</field>
+        <field name="inherit_id" ref="sale_channel.sale_channel_view_form" />
+        <field name="arch" type="xml">
+            <field name="channel_type" position="after">
+                <field name="workflow_process_id" />
+            </field>
+        </field>
+    </record>
+</odoo>
