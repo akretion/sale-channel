@@ -20,6 +20,7 @@
                         <group>
                             <field name="create_date" />
                             <field name="sale_channel_id" />
+                            <field name="sale_order_id" />
                             <field name="state_info" />
                             <field name="stack_trace" groups="base.group_system" />
                             <field name="data_str" />
@@ -37,6 +38,7 @@
             <list>
                 <field name="create_date" />
                 <field name="sale_channel_id" />
+                <field name="sale_order_id" />
                 <field name="state" />
                 <field name="state_info" optional="hide" />
                 <field name="data_str" optional="hide" />

@@ -1,7 +1,7 @@
 #  Copyright (c) Akretion 2020
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 SELECTION_INTERNAL_NAMING_METHOD = [
     ("name", "Native"),
@@ -34,3 +34,21 @@ class SaleChannel(models.Model):
         help="Sale Orders can use either Odoo native sequenced numbering, "
         "or the external identifier",
     )
+    sale_import_payload_ids = fields.One2many(
+        "sale.import.payload", "sale_channel_id", string="Sale Imports"
+    )
+    count_sale_import_payloads = fields.Integer(
+        string="Queue Chunks", compute="_compute_count_sale_import_payloads"
+    )
+
+    @api.depends("sale_import_payload_ids")
+    def _compute_count_sale_import_payloads(self):
+        for rec in self:
+            rec.count_sale_import_payloads = len(rec.sale_import_payload_ids)
+
+    def button_open_sale_import_payloads(self):
+        action = self.env["ir.actions.act_window"]._for_xml_id(
+            "sale_import_base.action_sale_import_payload"
+        )
+        action["domain"] = [("sale_channel_id", "=", self.id)]
+        return action

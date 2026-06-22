@@ -42,6 +42,7 @@ class SaleImportPayload(models.Model):
         store=True,
     )
     stack_trace = fields.Text(readonly=True)
+    sale_order_id = fields.Many2one("sale.order", readonly=True)
 
     @api.autovacuum
     def _delete_old_sale_importer_chunk(self):
@@ -91,6 +92,8 @@ class SaleImportPayload(models.Model):
             with self.env.cr.savepoint():
                 importer = self._get_importer()
                 result = importer.run()
+                if result and result._name == "sale.order":
+                    self.sale_order_id = result
         except RetryableJobError:
             raise
         except Exception as e:
