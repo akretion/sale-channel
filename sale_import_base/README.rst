@@ -63,8 +63,8 @@ Authors
 Contributors
 ------------
 
--  Kevin Khao <kevin.khao@akretion.com>
--  Sébastien Beau <sebastien.beau@akretion.com>
+- Kevin Khao <kevin.khao@akretion.com>
+- Sébastien Beau <sebastien.beau@akretion.com>
 
 Maintainers
 -----------
