@@ -13,6 +13,7 @@
                         <field name="crm_team_id" />
                         <field name="allow_match_on_email" />
                         <field name="archive_addresses" />
+                        <field name="skip_partner_update" />
                         <field name="confirm_order" />
                         <field name="invoice_order" invisible="not confirm_order" />
                     </group>

@@ -18,6 +18,11 @@ class SaleChannel(models.Model):
         default=True,
         # default = True to be backward compatible as much as possible
     )
+    skip_partner_update = fields.Boolean(
+        help="If checked, when an order is imported, the main partner is not updated. "
+        "It is usefull when we always receive order for same partners which "
+        "details are managed in Odoo."
+    )
     sale_orders_check_amounts_untaxed = fields.Boolean(
         "(technical) Check untaxed amounts against imported values"
     )

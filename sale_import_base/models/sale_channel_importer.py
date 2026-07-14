@@ -105,10 +105,12 @@ class SaleChannelImporter(models.TransientModel):
         return so_vals
 
     def _process_partner(self, customer_data):
+        channel = self.payload_id.sale_channel_id
         partner = self._find_partner(customer_data)
         vals = self._prepare_partner(customer_data)
         if partner:
-            partner.write(vals)
+            if not channel.skip_partner_update:
+                partner.write(vals)
             return partner
         else:
             partner = self.env["res.partner"].create(vals)
