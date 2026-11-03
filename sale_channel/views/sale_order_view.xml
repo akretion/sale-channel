@@ -11,4 +11,32 @@
             </xpath>
         </field>
     </record>
+
+    <record id="view_sale_order_tree_channel" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.sale_order_tree" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="sale_channel_id" optional="hide" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_sale_order_filter_channel" model="ir.ui.view">
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter" />
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="sale_channel_id" />
+            </field>
+            <filter name="customer" position="after">
+                <filter
+                    name="sale_channel"
+                    string="Sale Channel"
+                    domain="[]"
+                    context="{'group_by': 'sale_channel_id'}"
+                />
+            </filter>
+        </field>
+    </record>
 </odoo>
